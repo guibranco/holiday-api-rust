@@ -4,7 +4,6 @@ The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust
 | Service      | Status |
 | -------      | :----: |
 | TravisCI     | [![Build Status](https://travis-ci.org/guibranco/holiday-api-rust.svg?branch=master)](https://travis-ci.org/guibranco/holiday-api-rust)   |
-| DependencyCI | [![DependencyStatus](https://dependencyci.com/github/guibranco/holiday-api-rust/badge)](https://dependencyci.com/github/guibranco/holiday-api-rust)   |
 | AppveyorCI   | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/master)       |
 | CodeCov   | [![codecov](https://codecov.io/gh/guibranco/holiday-api-rust/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/holiday-api-rust)      |
 | crates.io | [![crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
