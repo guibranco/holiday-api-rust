@@ -1,6 +1,6 @@
 [package]
 name = "holidayapi"
-version = "0.0.1"
+version = "1.0.0"
 authors = ["Guilherme Branco Stracini <guilherme@guilhermebranco.com.br>"]
 description = "The Holiday API client wrapper written in Rust."
 repository = "https://github.com/guibranco/holiday-api-rust.git"
@@ -16,8 +16,8 @@ rustls = ["hyper-rustls"]
 rust-native-tls = ["native-tls", "hyper-tls"]
 
 [badges]
-travis-ci = { repository = "github-rs/github-rs", branch = "master" }
-appveyor = { repository = "github-rs/github-rs", branch = "master", service = "github" }
+travis-ci = { repository = "guibranco/holiday-api-rust", branch = "master" }
+appveyor = { repository = "guibranco/holiday-api-rust", branch = "master", service = "github" }
 
 [dependencies]
 hyper = "0.12.27"
