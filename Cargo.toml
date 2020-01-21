@@ -10,6 +10,11 @@ categories = ["network-programming", "web-programming::http-client"]
 readme = "README.md"
 license = "MIT"
 
+[features]
+default = ["rustls"]
+rustls = ["hyper-rustls"]
+rust-native-tls = ["native-tls", "hyper-tls"]
+
 [badges]
 travis-ci = { repository = "github-rs/github-rs", branch = "master" }
 appveyor = { repository = "github-rs/github-rs", branch = "master", service = "github" }
