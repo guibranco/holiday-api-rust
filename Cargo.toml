@@ -1,6 +1,6 @@
 [package]
 name = "holiday_api_rust"
-version = "0.3.0"
+version = "0.3.1"
 authors = ["Guilherme Branco Stracini <guilherme@guilhermebranco.com.br>"]
 edition = "2018"
 description = "The Holiday API client wrapper written in Rust."

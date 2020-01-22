@@ -27,7 +27,7 @@ Add the following to your `Cargo.toml`
 
 ```toml
 [dependencies]
-holiday_api_rust = "0.2"
+holiday_api_rust = "0.3.1"
 serde_json = "1.0"
 ```
 
@@ -51,4 +51,4 @@ match client.search_holidays("2019", "BR") {
 
 Licensed under
 
-- MIT license ([LICENSE](LICENSE) or [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
+- MIT license ([LICENSE](https://github.com/guibranco/holiday-api-rust/blob/master/LICENSE) or [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
