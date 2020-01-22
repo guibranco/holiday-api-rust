@@ -10,22 +10,19 @@ extern crate serde_json;
 extern crate tokio_core;
 extern crate url;
 
-use serde_json::Error;
 use futures::{Future, Stream};
 use hyper::{Client, Uri};
 use hyper_tls::HttpsConnector;
 use serde_json::Value as JsValue;
 use std::cell::RefCell;
-use std::collections::HashSet;
 use std::io;
-use std::time::{SystemTime, UNIX_EPOCH};
 use tokio_core::reactor::Core;
 use url::Url;
 
 type HttpsClient = Client<hyper_tls::HttpsConnector<hyper::client::HttpConnector>, hyper::Body>;
 
 #[derive(Deserialize, Debug)]
-struct Holidays {
+pub struct Holidays {
     pub status: u32,
     pub warning: String,
     pub requests: Requests,
@@ -33,14 +30,14 @@ struct Holidays {
 }
 
 #[derive(Deserialize, Debug)]
-struct Requests {
+pub struct Requests {
     pub used: u32,
     pub available: u32,
     pub resets: String
 }
 
 #[derive(Deserialize, Debug)]
-struct Holiday {
+pub struct Holiday {
     pub name: String,
     pub date: String,
     pub observed: String,
@@ -51,34 +48,34 @@ struct Holiday {
 }
 
 #[derive(Deserialize, Debug)]
-struct Weekday {
+pub struct Weekday {
     pub date: WeekDate,
     pub observed: WeekDate
 }
 
 #[derive(Deserialize, Debug)]
-struct Weekday {
+pub struct WeekDate {
     pub name: String,
     pub numeric: String 
 }
 
 fn to_io_error<E>(err: E) -> io::Error
 where
-    E : Into<Box<std::error::Error + Send + Sync>>,
+    E : Into<Box<dyn std::error::Error + Send + Sync>>,
 {
     io::Error::new(io::ErrorKind::Other, err)
 }
 
 struct UriMaker {
-    apiKey: String,
-    apiBase: String,
+    api_key: String,
+    api_base: String,
 }
 
 impl UriMaker {
-    pub fn new(apiKey: String, apiBase: String) -> UriMaker {
+    pub fn new(api_key: String, api_base: String) -> UriMaker {
         UriMaker {
-            apiKey,
-            apiBase,
+            api_key,
+            api_base,
         }
     }
 
@@ -87,17 +84,17 @@ impl UriMaker {
     }
 
     fn build_url(&self, path: &str) -> Result<Url, url::ParseError> {
-        let mut url = Url::parse(&self.apiBase)?.join(path)?;
+        let mut url = Url::parse(&self.api_base)?.join(path)?;
 
         url.query_pairs_mut()
-        .append_pair("key", &self.apiKey)
+        .append_pair("key", &self.api_key);
         
-        Ok(url);
+        Ok(url)
     }
 
-    pub fn holidays_by_country_and_year(&self, year: &u8, country: &str) -> Uri {
+    pub fn holidays_by_country_and_year(&self, year: &str, country: &str) -> Uri {
         let mut url = self.build_url("holidays").unwrap();
-        url.query_pairs_mut().append_pair("year", year).query_pairs_mut("country", country);
+        url.query_pairs_mut().append_pair("year", year).append_pair("country", country);
         Self::url_to_uri(&url)
 
     }
@@ -110,7 +107,7 @@ pub struct HolidayAPIClient {
 }
 
 impl HolidayAPIClient {
-    pub fn new(apiKey: String) -> HolidayAPIClient {
+    pub fn new(api_key: String) -> HolidayAPIClient {
         let core = Core::new().unwrap();
 
         let http = {
@@ -120,7 +117,7 @@ impl HolidayAPIClient {
             Client::configure().connector(connector).build(&handle)
         };
 
-        let uri_maker = UriMaker::new(apiKey,"https://holidayapi.com/v1/".to_owned(),);
+        let uri_maker = UriMaker::new(api_key,"https://holidayapi.com/v1/".to_owned(),);
 
         HolidayAPIClient {
             uri_maker,
@@ -129,14 +126,14 @@ impl HolidayAPIClient {
         }
     }
 
-    fn get_json(&self, uri: hyper::Uri) -> Box<Future<Item = JsValue, Error = io::Error>> {
+    fn get_json(&self, uri: hyper::Uri) -> Box<dyn Future<Item = JsValue, Error = io::Error>> {
         debug!("GET {}", uri);
 
         let f = self.http
             .get(uri)
             .and_then(|res| {
                 debug!("Response: {}", res.status());
-                res.bodY().concat2().and_then(move |body| {
+                res.body().concat2().and_then(move |body| {
                     let value: serde_json::Value = 
                         serde_json::from_slice(&body).map_err(to_io_error)?;
 
@@ -148,7 +145,7 @@ impl HolidayAPIClient {
         Box::new(f)
     }
 
-    pub fn search_holidays(&self, year: &u8, country: &str) -> Result<Holidays, io::Error>{
+    pub fn search_holidays(&self, year: &str, country: &str) -> Result<Vec<Holiday>, io::Error>{
         let uri = self.uri_maker.holidays_by_country_and_year(year, country);
         let work = self.get_json(uri).and_then(|value| {
             let wrapper: Holidays = 

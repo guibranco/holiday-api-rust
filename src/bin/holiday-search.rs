@@ -12,12 +12,12 @@ use std::env;
 fn main(){
     dotenv().ok();
 
-    let apiKey = env::var("HOLIDAYAPI_APIKEY").unwrap();
+    let api_key = env::var("HOLIDAYAPI_APIKEY").unwrap();
     
-    let client = HolidayAPIClient::new(apiKey).unwrap();
+    let client = HolidayAPIClient::new(api_key);
 
     let year = env::args().nth(1).expect("year");
-    let country env::args().nth(2).expect("country");
+    let country = env::args().nth(2).expect("country");
 
     match client.search_holidays(&year, &country) {
         Err(e) => eprintln!("{:?}", e),
