@@ -8,7 +8,6 @@ environment:
       BITS: 64
     - TARGET: i686-pc-windows-msvc
       BITS: 32
-      FEATURES: rust-native-tls
     - TARGET: x86_64-pc-windows-msvc
       BITS: 64
 install:
