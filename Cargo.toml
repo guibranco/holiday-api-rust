@@ -3,6 +3,17 @@ name = "holiday_api_rust"
 version = "0.1.0"
 authors = ["Guilherme Branco Stracini <guilherme@guilhermebranco.com.br>"]
 edition = "2018"
+description = "The Holiday API client wrapper written in Rust."
+repository = "https://github.com/guibranco/holiday-api-rust.git"
+homepage = "https://github.com/guibranco/holiday-api-rust"
+keywords = ["rest", "client", "json", "hyper", "holiday", "holiday-api"]
+categories = ["network-programming", "web-programming::http-client"]
+readme = "README.md"
+license = "MIT"
+
+[badges]
+travis-ci = { repository = "guibranco/holiday-api-rust", branch = "master" }
+appveyor = { repository = "guibranco/holiday-api-rust", branch = "master", service = "github" }
 
 [dependencies]
 dotenv = "0.11.0"
