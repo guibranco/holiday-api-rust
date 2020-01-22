@@ -26,7 +26,7 @@ holiday-api-rust supports [rustls] and [rust-native-tls] for TLS connectivity.
 
 ## Minimum Compiler Version
 
-Due to the use of certain features github-rs requires `rustc` version 1.18 or
+Due to the use of certain features holiday-api-rust requires `rustc` version 1.18 or
 higher.
 
 ## Getting Started
@@ -35,7 +35,7 @@ Add the following to your `Cargo.toml`
 
 ```toml
 [dependencies]
-holiday_api_rust = "0.1"
+holiday_api_rust = "0.2"
 serde_json = "1.0"
 ```
 
