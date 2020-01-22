@@ -3,9 +3,8 @@ The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust
 
 | Service      | Status |
 | -------      | :----: |
-| AppveyorCI   | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/master)       |
-| CodeCov   | [![codecov](https://codecov.io/gh/guibranco/holiday-api-rust/branch/master/graph/badge.svg)](https://codecov.io/gh/guibranco/holiday-api-rust)      |
-| crates.io | [![crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
+| AppveyorCI   | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/master) |
+| crates.io    | [![crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
 
 Pure Rust bindings to the [Holiday API](https://holidayapi.com).
 
@@ -16,13 +15,6 @@ holiday-api-rust is intended to work on all tier 1 supported Rust systems:
 - MacOSX
 - Linux
 - Windows
-
-holiday-api-rust supports [rustls] and [rust-native-tls] for TLS connectivity.
-`rustls` is used by default, but one can toggle support with Cargo features:
-
-[rustls]: https://github.com/ctz/rustls
-[rust-native-tls]: https://github.com/sfackler/rust-native-tls
-[ring]: https://github.com/briansmith/ring
 
 ## Minimum Compiler Version
 
