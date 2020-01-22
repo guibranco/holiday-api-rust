@@ -35,37 +35,22 @@ Add the following to your `Cargo.toml`
 
 ```toml
 [dependencies]
-holiday-api-rust = "1.0"
+holiday_api_rust = "0.1"
 serde_json = "1.0"
 ```
 
 Then in your `lib.rs` or `main.rs` file add:
 
 ```rust
-use holiday_api::client::{Executor, Github};
-use serde_json::Value;
-```
+extern crate holiday_api_rust;
 
-Now you can start making queries. Here's a small example to get supported languages by the Holiday API:
-
-```rust
-use gholiday_api::client::{Executor, HolidayApi};
-use serde_json::Value;
-
-fn main() {
-    let client = HolidayApi::new("API TOKEN").unwrap();
-    let holidays = client.get()
-                   .holidays("br", 2019)
-                   .execute::<Value>();
-    match holidays {
-        Ok((headers, status, json)) => {
-            println!("{:#?}", headers);
-            println!("{}", status);
-            if let Some(json) = json{
-                println!("{}", json);
-            }
-        },
-        Err(e) => println!("{}", e)
+let client = HolidayAPIClient::new("HolidayAPI key here");
+match client.search_holidays("2019", "BR") {
+    Err(e) => eprintln!("{:?}", e),
+    Ok(holidays) => {
+        for holiday in holidays {
+            println!("Holiday: {} | Date: {} | Country: {}", holiday.name, holiday.date, holiday.country);
+        }
     }
 }
 ```
@@ -75,5 +60,3 @@ fn main() {
 Licensed under
 
 - MIT license ([LICENSE](LICENSE) or [http://opensource.org/licenses/MIT](http://opensource.org/licenses/MIT))
-
-This library is based on the [github-rs](https://github.com/github-rs/github-rs) project.
