@@ -16,18 +16,15 @@ fn main(){
     
     let client = HolidayAPIClient::new(api_key);
 
-    let year = env::args().nth(1).expect("year");
-    let country = env::args().nth(2).expect("country");
-
-    match client.search_holidays(&year, &country) {
+    match client.search_countries(){
         Err(e) => eprintln!("{:?}", e),
-        Ok(holidays) =>{
+        Ok(countries) =>{
             let mut table = Table::new();
             table.set_format(*format::consts::FORMAT_NO_LINESEP_WITH_TITLE);
-            table.set_titles(row!["Name", "Date", "Country"]);
+            table.set_titles(row!["Code", "Name", "Flag"]);
 
-            for holiday in holidays {
-                table.add_row(row![holiday.name, holiday.date, holiday.country]);
+            for country in countries {
+                table.add_row(row![country.code, country.name, country.flag]);
             }
             table.printstd();
         }
