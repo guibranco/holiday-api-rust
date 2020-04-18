@@ -1,2 +1,5 @@
 theme: jekyll-theme-minimal
+title: HolidayAPI Rust client
+description: The HolidayAPI client written in Rust
 logo: https://raw.githubusercontent.com/guibranco/holiday-api-rust/master/logo-ghpage.png
+show_downloads: true
