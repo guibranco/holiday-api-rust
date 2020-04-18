@@ -1,4 +1,5 @@
 # holiday-api-rust
+
 The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust
 
 | Service      | Status |
