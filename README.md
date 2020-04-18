@@ -1,4 +1,4 @@
-# holiday-api-rust
+# HolidayAPI Rust client
 
 The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust
 
