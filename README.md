@@ -1,11 +1,15 @@
 # HolidayAPI Rust client
 
-The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust. ![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
+The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust. 
+
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/guibranco/holiday-api-rust/master)
+![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
+
 
 | Service      | Status |
 | -------      | :----: |
 | AppveyorCI   | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/master) |
-| crates.io    | [![crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
+| crates.io    | [![Crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
 
 Pure Rust bindings to the [Holiday API](https://holidayapi.com).
 
