@@ -1,6 +1,6 @@
 # HolidayAPI Rust client
 
-The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust.
+The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust. ![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
 
 | Service      | Status |
 | -------      | :----: |
