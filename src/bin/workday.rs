@@ -1,12 +1,8 @@
 extern crate dotenv;
 extern crate holiday_api_rust;
-#[macro_use]
-extern crate prettytable;
 
 use dotenv::dotenv;
 use holiday_api_rust::HolidayAPIClient;
-use prettytable::Table;
-use prettytable::format;
 use std::env;
 
 fn main(){
@@ -22,11 +18,6 @@ fn main(){
 
     match client.workday(&country, &start, &days) {
         Err(e) => eprintln!("{:?}", e),
-        Ok(workday) =>{
-            match wd {
-                None => println!("No workday!"),
-                Some(h) => println!(h),
-            }          
-        }
+        Ok(workday) => println!("Workday: {}", workday.date)
     }
 }

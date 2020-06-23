@@ -111,6 +111,15 @@ pub struct Language {
 }
 
 #[derive(Deserialize, Debug)]
+pub struct WorkdayResponse {
+    pub status: u32,
+    pub error: Option<String>,
+    pub warning: Option<String>,
+    pub requests: Requests,
+    pub workday: Workday
+}
+
+#[derive(Deserialize, Debug)]
 pub struct Workday {
     pub date: String,
     pub weekday: WeekDate
@@ -164,8 +173,8 @@ impl UriMaker {
 
     pub fn workday(&self, country: &str, start: &str, days: &str) -> Uri {
         let mut url = self.build_url("workday").unwrap();
-        url.query_pairs_mut().append_pair("country", country).append_pair("start", start).append_pair("days", dayes);
-        Self::url_to_uri($url)
+        url.query_pairs_mut().append_pair("country", country).append_pair("start", start).append_pair("days", days);
+        Self::url_to_uri(&url)
     }
 }
 
@@ -244,13 +253,13 @@ impl HolidayAPIClient {
         self.core.borrow_mut().run(work)
     }
 
-    pub fn workday(&self, country: &str, start: &str, days: &str) -> Result<Option<Workday>, io::Error>{
+    pub fn workday(&self, country: &str, start: &str, days: &str) -> Result<Workday, io::Error>{
         let uri = self.uri_maker.workday(country, start, days);
         let work = self.get_json(uri).and_then(|value| {
-            let wrapper: Workday =
+            let wrapper: WorkdayResponse =
                 serde_json::from_value(value).map_err(to_io_error)?;
                 Ok(wrapper.workday)
         });
-        self.core.borrow_mut().run(work);
+        self.core.borrow_mut().run(work)
     }
 }
