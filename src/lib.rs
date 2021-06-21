@@ -125,6 +125,15 @@ pub struct Workday {
     pub weekday: WeekDate
 }
 
+#[derive(Deserialize, Debug)]
+pub struct Workdays {
+    pub status: u32,
+    pub error: Option<String>,
+    pub warning: Option<String>,
+    pub requests: Requests,
+    pub workdays: u32
+}
+
 fn to_io_error<E>(err: E) -> io::Error
 where
     E : Into<Box<dyn std::error::Error + Send + Sync>>,
@@ -174,6 +183,12 @@ impl UriMaker {
     pub fn workday(&self, country: &str, start: &str, days: &str) -> Uri {
         let mut url = self.build_url("workday").unwrap();
         url.query_pairs_mut().append_pair("country", country).append_pair("start", start).append_pair("days", days);
+        Self::url_to_uri(&url)
+    }
+
+    pub fn workdays(&self, country: &str, start: &str, end: &str) -> Uri {
+        let mut url = self.build_url("workdays").unwrap();
+        url.query_pairs_mut().append_pair("country", country).append_pair("start", start).append_pair("end", end);
         Self::url_to_uri(&url)
     }
 }
@@ -259,6 +274,16 @@ impl HolidayAPIClient {
             let wrapper: WorkdayResponse =
                 serde_json::from_value(value).map_err(to_io_error)?;
                 Ok(wrapper.workday)
+        });
+        self.core.borrow_mut().run(work)
+    }
+
+    pub fn workdays(&self, country: &str, start: &str, end: &str) -> Result<u32, io::Error>{
+        let uri = self.uri_maker.workdays(country, start, end);
+        let work = self.get_json(uri).and_then(|value| {
+            let wrapper: Workdays =
+                serde_json::from_value(value).map_err(to_io_error)?;
+                Ok(wrapper.workdays)
         });
         self.core.borrow_mut().run(work)
     }
