@@ -4,7 +4,7 @@ The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust.
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/guibranco/holiday-api-rust/master)
 ![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
-
+[![wakatime](https://wakatime.com/badge/github/guibranco/holiday-api-rust.svg)](https://wakatime.com/badge/github/guibranco/holiday-api-rust)
 
 | Service      | Status |
 | -------      | :----: |
