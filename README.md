@@ -32,7 +32,7 @@ Add the following to your `Cargo.toml`
 
 ```toml
 [dependencies]
-holiday_api_rust = "0.3.1"
+holiday_api_rust = "0.4.2"
 serde_json = "1.0"
 ```
 
@@ -42,7 +42,7 @@ Then in your `lib.rs` or `main.rs` file add:
 extern crate holiday_api_rust;
 
 let client = HolidayAPIClient::new("HolidayAPI key here");
-match client.search_holidays("2019", "BR") {
+match client.search_holidays("2022", "BR") {
     Err(e) => eprintln!("{:?}", e),
     Ok(holidays) => {
         for holiday in holidays {

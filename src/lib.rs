@@ -10,7 +10,7 @@ extern crate serde_json;
 extern crate tokio_core;
 extern crate url;
 
-use futures::{Future, Stream};
+use futures::{Future};
 use hyper::{Client, Uri};
 use hyper_tls::HttpsConnector;
 use serde_json::Value as JsValue;
