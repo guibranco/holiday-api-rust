@@ -15,7 +15,7 @@ Pure Rust bindings to the [Holiday API](https://holidayapi.com).
 
 ## Dependencies and support
 
-holiday-api-rust is intended to work on all tier 1 supported Rust systems:
+`holiday-api-rust` is intended to work on all tier 1 supported Rust systems:
 
 - MacOSX
 - Linux
@@ -23,7 +23,7 @@ holiday-api-rust is intended to work on all tier 1 supported Rust systems:
 
 ## Minimum Compiler Version
 
-Due to the use of certain features holiday-api-rust requires `rustc` version 1.18 or
+Due to the use of certain features `holiday-api-rust` requires `rustc` version 1.18 or
 higher.
 
 ## Getting Started
