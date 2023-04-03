@@ -4,7 +4,8 @@ The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust.
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/guibranco/holiday-api-rust/master)
 ![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/392b044637f43eb881ac/maintainability)](https://codeclimate.com/github/guibranco/holiday-api-rust/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/392b044637f43eb881ac/test_coverage)](https://codeclimate.com/github/guibranco/holiday-api-rust/test_coverage)
 
 | Service      | Status |
 | -------      | :----: |
