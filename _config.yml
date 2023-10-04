@@ -1,5 +1,5 @@
 theme: jekyll-theme-minimal
 title: HolidayAPI Rust client
 description: The HolidayAPI client for Rust projects.
-logo: https://raw.githubusercontent.com/guibranco/holiday-api-rs/main/logo.png
+logo: https://raw.githubusercontent.com/guibranco/holiday-api-rust/main/logo.png
 show_downloads: true
