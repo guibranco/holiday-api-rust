@@ -1,6 +1,6 @@
 # HolidayAPI Rust client
 
-The [HolidayAPI](https://holidayapi.com/docs) client wrapper written in Rust. 
+📆⚙️ [HolidayAPI](https://holidayapi.com/docs) client wrapper for Rust projects.
 
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/guibranco/holiday-api-rust/main)
 ![Crates.io](https://img.shields.io/crates/d/holiday-api-rust)
