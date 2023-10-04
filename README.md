@@ -12,7 +12,7 @@
 
 | Service      | Status |
 | -------      | :----: |
-| AppVeyor CI   | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/main) |
+| AppVeyor CI  | [![Build status](https://ci.appveyor.com/api/projects/status/4ksqycqm761c06jb/branch/main?svg=true)](https://ci.appveyor.com/project/guibranco/holiday-api-rust/branch/main) |
 | crates.io    | [![Crates.io](https://img.shields.io/crates/v/holiday-api-rust.svg)](https://crates.io/crates/holiday-api-rust) |
 
 Pure Rust bindings to the [Holiday API](https://holidayapi.com).
