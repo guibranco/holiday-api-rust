@@ -1,7 +1,7 @@
 repo_name: guibranco/holiday-api-rust
-report_id: ca6158a13dd2bd26f751e99716be27c4
+report_id: 60cd32158fd47c985b2a9431bf5e9833
 repo_type: Public
-timestamp: '2023-11-09T17:21:41+00:00'
+timestamp: '2023-12-14T09:38:09+00:00'
 requested_by: guibranco
 provider: github
 branch: main
@@ -33,7 +33,7 @@ tools:
   category: Build, Test, Deploy
   sub_category: Continuous Integration
   image_url: https://img.stackshare.io/service/11563/actions.png
-  detection_source: ".github/workflows/sonar-cloud.yml"
+  detection_source: ".github/workflows/linter.yml"
   last_updated_by: Guilherme Branco Stracini
   last_updated_on: 2023-10-04 23:24:13.000000000 Z
 - name: Shell
