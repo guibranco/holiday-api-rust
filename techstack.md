@@ -4,8 +4,8 @@
 guibranco/holiday-api-rust is built on the following main stack:
 
 - [Rust](http://www.rust-lang.org/) – Languages
-- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 
 Full tech stack [here](/techstack.md)
 
@@ -16,8 +16,8 @@ Full tech stack [here](/techstack.md)
 guibranco/holiday-api-rust is built on the following main stack:
 
 - <img width='25' height='25' src='https://img.stackshare.io/service/1070/v7txhrjp9pdqrkdtxxp0.png' alt='Rust'/> [Rust](http://www.rust-lang.org/) – Languages
-- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
+- <img width='25' height='25' src='https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png' alt='Shell'/> [Shell](https://en.wikipedia.org/wiki/Shell_script) – Shells
 
 Full tech stack [here](/techstack.md)
 
@@ -28,7 +28,7 @@ Full tech stack [here](/techstack.md)
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [guibranco/holiday-api-rust](https://github.com/guibranco/holiday-api-rust)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|4<br/>Tools used|01/11/24 <br/>Report generated|
+|4<br/>Tools used|02/29/24 <br/>Report generated|
 |------|------|
 </div>
 
