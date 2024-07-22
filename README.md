@@ -51,6 +51,9 @@ match client.search_holidays("2019", "BR") {
     Ok(holidays) => {
         for holiday in holidays {
             println!("Holiday: {} | Date: {} | Country: {}", holiday.name, holiday.date, holiday.country);
+## Code Climate Coverage Reports
+To enable Code Climate coverage reports, ensure you have the `CC_TEST_REPORTER_ID` secret set in your repository settings.
+
         }
     }
 }
