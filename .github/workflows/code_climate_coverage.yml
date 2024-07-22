@@ -1,0 +1,26 @@
+name: Code Climate Coverage
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - name: Run tests
+        run: cargo test --verbose
+      - name: Generate coverage report
+        run: |
+          cargo install cargo-tarpaulin
+          cargo tarpaulin --out Xml
+      - name: Upload coverage to Code Climate
+        run: |
+          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+          chmod +x ./cc-test-reporter
+          ./cc-test-reporter format-coverage -t cobertura -o coverage/codeclimate.json
+          ./cc-test-reporter upload-coverage
+    env:
+      CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
